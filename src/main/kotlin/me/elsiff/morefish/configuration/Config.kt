@@ -24,10 +24,10 @@ object Config {
     val localTimeListLoader: LocalTimeListLoader = LocalTimeListLoader()
     val prizeMapLoader: PrizeMapLoader = PrizeMapLoader()
 
-    val defaultCatchAnnouncement: PlayerAnnouncement
-        get() = playerAnnouncementLoader.loadFrom(standard["messages"], "announce-catch")
-    val newFirstAnnouncement: PlayerAnnouncement
-        get() = playerAnnouncementLoader.loadFrom(standard["messages"], "announce-new-1st")
+    val defaultCatchAnnouncement: PlayerAnnouncement?
+        get() = standard["messages"]?.let { playerAnnouncementLoader.loadFrom(it, "announce-catch") }
+    val newFirstAnnouncement: PlayerAnnouncement?
+        get() = standard["messages"]?.let { playerAnnouncementLoader.loadFrom(it, "announce-new-1st") }
 
     private val configurationVersionMap: Map<ConfigurationAccessor, Int> = mapOf(
         standard to 300,

@@ -8,7 +8,7 @@ import org.bukkit.plugin.Plugin
  * Created by elsiff on 2019-01-20.
  */
 class Prize(
-    private val commands: List<String>
+        private val commands: List<String>
 ) {
     fun giveTo(player: OfflinePlayer, rankNumber: Int, plugin: Plugin) {
         if (!player.isOnline) {
@@ -18,7 +18,7 @@ class Prize(
 
         val server = plugin.server
         for (command in commands) {
-            server.dispatchCommand(server.consoleSender, command.replace("@p", player.name))
+            server.dispatchCommand(server.consoleSender, command.replace("@p", player.name.toString()))
         }
     }
 }

@@ -30,7 +30,7 @@ class FishRaritySetLoader(
                 color = chatColorLoader.loadFrom(it, "color"),
                 catchHandlers = catchHandlers,
                 catchAnnouncement = playerAnnouncementLoader.loadIfExists(it, "catch-announce")
-                    ?: Config.defaultCatchAnnouncement,
+                    ?: Config.defaultCatchAnnouncement!!,
                 hasNotFishItemFormat = it.boolean("skip-item-format", false),
                 noDisplay = it.boolean("no-display", false),
                 hasCatchFirework = it.boolean("firework", false),

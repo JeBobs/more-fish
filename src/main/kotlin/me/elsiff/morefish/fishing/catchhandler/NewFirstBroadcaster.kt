@@ -22,6 +22,6 @@ class NewFirstBroadcaster(
     }
 
     override fun announcement(fish: Fish): PlayerAnnouncement {
-        return Config.newFirstAnnouncement
+        return Config.newFirstAnnouncement!!
     }
 }
